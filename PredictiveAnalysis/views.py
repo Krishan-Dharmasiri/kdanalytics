@@ -16,7 +16,10 @@ import base64
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+from MainProject.settings import DATA_FOLDER
+dataFilePath = DATA_FOLDER + 'data.csv'
 
 
 # Create your views here.
@@ -24,7 +27,8 @@ def lynear_regression(request):
     
     # Load the diabetes dataset
     #advertising =pd.read_csv("C:\Krishantha\Projects\PYTHON\DATA\data.csv")
-    advertising = pd.read_csv(os.path.join(BASE_DIR,'PredictiveAnalysis\Data\data.csv'))
+    #advertising = pd.read_csv(os.path.join(BASE_DIR,'PredictiveAnalysis\Data\data.csv'))
+    advertising = pd.read_csv(dataFilePath)
     advertising.head()
     advertising_X = advertising[["TV","Radio","Newspaper"]]
 
